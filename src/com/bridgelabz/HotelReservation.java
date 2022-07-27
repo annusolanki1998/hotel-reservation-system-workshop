@@ -12,17 +12,17 @@ public class HotelReservation {
         System.out.println("welcome to Hotel Reservation");
 
 
-        HotelData lakeWood = new HotelData("LakeWood", 110, 90);
-        HotelData bridgeWood = new HotelData("BridgeWood", 150, 50);
-        HotelData ridgeWood = new HotelData("RidgeWood", 220, 150);
+        HotelData lakeWood = new HotelData("lakeWood", 110, 90, 3);
+        HotelData bridgeWood = new HotelData("BridgeWood", 150, 50, 5);
+        HotelData ridgeWood = new HotelData("RidgeWood", 220, 150, 4);
         hotelDataList.add(lakeWood);
         hotelDataList.add(bridgeWood);
         hotelDataList.add(ridgeWood);
 
         hotelDataList.forEach(output -> System.out.println(output));
 
-        findCheapestHotelWeekdays("06-Dec-2021", "09-Dec-2021");
-        findCheapestHotelWeekend("11-Jan-2022", "14-Jan-2022");
+        findCheapestHotelWeekdays("10-Sep-2020", "11-Sep-2020");
+        findCheapestHotelWeekend("11-Sep-2020", "12-Sep-2020");
 
 
     }
