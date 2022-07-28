@@ -24,6 +24,7 @@ public class HotelReservation {
         findCheapestHotelWeekdays("10-Sep-2020", "11-Sep-2020");
         findCheapestHotelWeekend("11-Sep-2020", "12-Sep-2020");
         findCheapestBestRatedHotel("11-Sep-2020", "12-Sep-2020");
+        findBestRatedHotel("11-Sep-2020", "12-Sep-2020");
 
 
     }
@@ -68,6 +69,21 @@ public class HotelReservation {
         hotelData.setHotelName(cheapBestHotel.getHotelName());
         hotelData.setTotalPrice(cheapBestHotel.getWeekendRates() * stayingDays);
         System.out.println("Cheap best Hotel is : " + hotelData.getHotelName());
+        System.out.println("Total price is : " + stayingDays + hotelData.getTotalPrice());
+    }
+
+    public static void findBestRatedHotel(String bookingFromDate, String leavingDate) {
+        LocalDate checkInDate = LocalDate.parse(bookingFromDate, DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
+        LocalDate checkOutDate = LocalDate.parse(leavingDate, DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
+        int stayingDays = checkOutDate.getDayOfMonth() - checkInDate.getDayOfMonth() + 1;
+        HotelData cheapBestHotel = hotelDataList.stream().filter(n -> n.hotelRating >3)
+                .min(Comparator.comparing(HotelData::getHotelRating))
+                .orElse(null);
+
+        HotelData hotelData = new HotelData();
+        hotelData.setHotelName(cheapBestHotel.getHotelName());
+        hotelData.setTotalPrice(cheapBestHotel.getWeekendRates() * stayingDays);
+        System.out.println("Best Hotel is : " + hotelData.getHotelName());
         System.out.println("Total price is : " + stayingDays + hotelData.getTotalPrice());
     }
 }
