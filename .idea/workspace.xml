@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddc0c8b2-cc96-4158-a017-d71113da67fd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/bridgelabz/HotelData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bridgelabz/HotelData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/bridgelabz/HotelReservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/bridgelabz/HotelReservation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
