@@ -7,19 +7,31 @@ import java.util.*;
 public class HotelReservation {
 
     static List<HotelData> hotelDataList = new ArrayList<>();
+    static List<HotelData> specialList = new LinkedList<>();
 
     public static void main(String[] args) {
         System.out.println("welcome to Hotel Reservation");
 
-
+        System.out.println("Normal rates for customers");
         HotelData lakeWood = new HotelData("lakeWood", 110, 90, 3);
         HotelData bridgeWood = new HotelData("BridgeWood", 150, 50, 5);
         HotelData ridgeWood = new HotelData("RidgeWood", 220, 150, 4);
         hotelDataList.add(lakeWood);
         hotelDataList.add(bridgeWood);
         hotelDataList.add(ridgeWood);
-
         hotelDataList.forEach(output -> System.out.println(output));
+
+        System.out.println();
+
+        System.out.println("Special rates for reward customer is : ");
+        HotelData lakeWood1 = new HotelData("lakeWood", 80, 80, 3);
+        HotelData bridgeWood2 = new HotelData("BridgeWood", 110, 50, 5);
+        HotelData ridgeWood3 = new HotelData("RidgeWood", 100, 400, 4);
+        specialList.add(lakeWood1);
+        specialList.add(bridgeWood2);
+        specialList.add(ridgeWood3);
+        specialList.forEach(output -> System.out.println(output));
+
 
         findCheapestHotelWeekdays("10-Sep-2020", "11-Sep-2020");
         findCheapestHotelWeekend("11-Sep-2020", "12-Sep-2020");
@@ -61,7 +73,7 @@ public class HotelReservation {
         LocalDate checkInDate = LocalDate.parse(bookingFromDate, DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
         LocalDate checkOutDate = LocalDate.parse(leavingDate, DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
         int stayingDays = checkOutDate.getDayOfMonth() - checkInDate.getDayOfMonth() + 1;
-        HotelData cheapBestHotel = hotelDataList.stream().filter(n -> n.hotelRating >3)
+        HotelData cheapBestHotel = hotelDataList.stream().filter(n -> n.hotelRating > 3)
                 .min(Comparator.comparing(HotelData::getHotelRating))
                 .orElse(null);
 
@@ -76,7 +88,7 @@ public class HotelReservation {
         LocalDate checkInDate = LocalDate.parse(bookingFromDate, DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
         LocalDate checkOutDate = LocalDate.parse(leavingDate, DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
         int stayingDays = checkOutDate.getDayOfMonth() - checkInDate.getDayOfMonth() + 1;
-        HotelData cheapBestHotel = hotelDataList.stream().filter(n -> n.hotelRating >3)
+        HotelData cheapBestHotel = hotelDataList.stream().filter(n -> n.hotelRating > 3)
                 .min(Comparator.comparing(HotelData::getHotelRating))
                 .orElse(null);
 
